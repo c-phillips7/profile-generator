@@ -48,29 +48,57 @@ const promptManager = () => {
                 }
             }
         }
-
-
-        
     ])
-
-
 }
     
 
 // prompt for new Employee info from inquiere
+    // taking arguement of existing data so array can be added to
+const promptEmployee = employeeData => {
     //create empty array of employees
-    //ask if would like to add employee
-        // if no: 
-            // return object created
-        // if yes:
-            // ask name
-            // ask email
-            // ask role
-                // based on role ask relevant questions
-    // push created employee into array and ask if would like to add employee again
-
+    let employeeData = [];
+    // inquirer questions that will return answers
+    return inquirer.prompt([
+        //confirm if would like to add employee
+        {
+            type: 'confirm',
+            name: 'newEmployee',
+            message: "Would you like to add a new Employee?",
+            default: true
+        },
+        // if newEmployee is true, ask for Employee's Role
+        {
+            type: 'list',
+            name:'employeeRole',
+            message: "Select employee's role: ",
+            when: confirmEmployee => confirmEmployee.newEmployee,
+            validate: name => {
+                if (name) {
+                    return true;
+                } else {
+                    console.log("Please enter a name!");
+                    return false;
+                }
+            }
+        }
+                // ask name
+                // ask email
+                // ask role
+                    // based on role ask relevant questions
+        // push created employee into array and ask if would like to add employee again
+            // if no: 
+                // return object created
+    ])
+}
+    
 
 
 // use async function to await answers, then use these with classes to generate team
 
+promptManager()
+    .then(promptEmployee)
+    .then(answers ==> { //do stuff with answers
 
+
+
+    }
