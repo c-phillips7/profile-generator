@@ -96,9 +96,31 @@ const promptEmployee = employeeData => {
                 }
             }
         },
-                // ask email
-                // ask role
-                    // based on role ask relevant questions
+        // if newEmployee is true, ask for Employee's Role
+        {
+            type: 'list',
+            name: 'employeeRole',
+            message: "Select employee's role: ",
+            when: confirmEmployee => confirmEmployee.newEmployee,
+            choices: ['Engineer', 'Intern']
+        }
+        // If employeeRole is Engineer, ask for github
+        {
+            type: 'input',
+            name: 'github',
+            message: "Enter github username: ",
+            when: role => role.employeeRole === 'Engineer',
+            validate: github => {
+                if (github) {
+                    return true;
+                } else {
+                    console.log("Please enter a github username!");
+                    return false;
+                }
+            }
+        }
+        // If employeeRole is Intern, ask for school
+
         // push created employee into array and ask if would like to add employee again
             // if no: 
                 // return object created
