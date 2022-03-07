@@ -66,7 +66,7 @@ const promptEmployee = employeeData => {
             message: "Would you like to add a new Employee?",
             default: true
         },
-        // if newEmployee is true, ask for Employee's Role
+        // 
         {
             type: 'list',
             name:'employeeRole',
@@ -80,8 +80,22 @@ const promptEmployee = employeeData => {
                     return false;
                 }
             }
-        }
-                // ask name
+        },
+        // if newEmployee is true, ask for Employee's Email
+        {
+            type: 'input',
+            name: 'employeeEmail',
+            message: "Please enter the employee's Email: ",
+            when: confirmEmployee => confirmEmployee.newEmployee,
+            validate: email => {
+                if (email) {
+                    return true;
+                } else {
+                    console.log("Please enter an email!");
+                    return false;
+                }
+            }
+        },
                 // ask email
                 // ask role
                     // based on role ask relevant questions
