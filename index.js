@@ -6,14 +6,25 @@ const Intern = require('./lib/Intern');
 // prompt for Manager info from inquiere
 const promptManager = () => {
     return inquirer.prompt([
-    // get managers name
+        // get managers name
         {
             type: 'input',
             name: 'managerName',
             message: "Please enter the manager's name: ",
-        }
-    // get managers email
-    // get managers office number
+            validate: managerName => {
+                if (managerName) {
+                    return true;
+                } else {
+                    console.log("Please enter a manager's name!")
+                    return false;
+                }
+            }
+        },
+        // get managers email
+        {
+            
+        },
+        // get managers office number
 
 
         
