@@ -22,9 +22,32 @@ const promptManager = () => {
         },
         // get managers email
         {
-            
+            type: 'input',
+            name: 'managerEmail',
+            message: "Please enter the manager's Email",
+            validate: managerEmail => {
+                if (managerEmail) {
+                    return true;
+                } else {
+                    console.log("Please enter a manager's Email!")
+                    return false;
+                }
+            }
         },
         // get managers office number
+        {
+            type: 'input',
+            name: 'managerNumber',
+            message: "Please enter the manager's office number: ",
+            validate: managerNumber => {
+                if (managerNumber) {
+                    return true;
+                } else {
+                    console.log("Please enter a manager's office number!")
+                    return false;
+                }
+            }
+        }
 
 
         
