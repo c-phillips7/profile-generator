@@ -56,7 +56,9 @@ const promptManager = () => {
     // taking arguement of existing data so array can be added to
 const promptEmployee = employeeData => {
     //create empty array of employees
-    let employeeData = [];
+    if (!employeeData.employees) {
+        employeeData.employees = [];
+    }
     // inquirer questions that will return answers
     return inquirer.prompt([
         //confirm if would like to add employee
@@ -120,11 +122,34 @@ const promptEmployee = employeeData => {
             }
         }
         // If employeeRole is Intern, ask for school
-
+        {
+            type: 'input',
+            name: 'school',
+            message: "Enter school name: ",
+            when: role => role.employeeRole === 'Intern',
+            validate: school => {
+                if (school) {
+                    return true;
+                } else {
+                    console.log("Please enter a School Name!");
+                    return false;
+                }
+            }
+        }
         // push created employee into array and ask if would like to add employee again
             // if no: 
                 // return object created
-    ])
+        ])
+        .then(newEmployee => {
+            //push new Employee info into employee array
+            employeeData.employees.push(newEmployee);
+
+            if (newEmployee.newEmployee) { // if answered yes to add new employee
+                // call prompt again to add a new employee passing data
+                return promptEmployee(employeeData)
+            }
+            else return employeeData
+        });
 }
     
 
