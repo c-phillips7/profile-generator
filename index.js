@@ -4,9 +4,24 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
 // prompt for Manager info from inquiere
-    //managers name
-    // managers email
-    // managers office number
+const promptManager = () => {
+    return inquirer.prompt([
+    // get managers name
+        {
+            type: 'input',
+            name: 'managerName',
+            message: "Please enter the manager's name: ",
+        }
+    // get managers email
+    // get managers office number
+
+
+        
+    ])
+
+
+}
+    
 
 // prompt for new Employee info from inquiere
     //create empty array of employees
@@ -21,7 +36,7 @@ const Intern = require('./lib/Intern');
     // push created employee into array and ask if would like to add employee again
 
 
-    
+
 // use async function to await answers, then use these with classes to generate team
 
 
