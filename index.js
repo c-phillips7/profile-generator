@@ -55,6 +55,11 @@ const promptManager = () => {
 // prompt for new Employee info from inquiere
     // taking arguement of existing data so array can be added to
 const promptEmployee = employeeData => {
+    console.log(`
+    ==================
+    Add a New Employee
+    ==================`
+    );
     //create empty array of employees
     if (!employeeData.employees) {
         employeeData.employees = [];
