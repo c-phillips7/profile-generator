@@ -73,11 +73,11 @@ const promptEmployee = employeeData => {
             message: "Would you like to add a new Employee?",
             default: true
         },
-        // 
+        // if newEmployee is true, ask for Employee's Name
         {
-            type: 'list',
-            name:'employeeRole',
-            message: "Select employee's role: ",
+            type: 'input',
+            name:'employeeName',
+            message: "Please enter the employee's name: ",
             when: confirmEmployee => confirmEmployee.newEmployee,
             validate: name => {
                 if (name) {
@@ -110,7 +110,7 @@ const promptEmployee = employeeData => {
             message: "Select employee's role: ",
             when: confirmEmployee => confirmEmployee.newEmployee,
             choices: ['Engineer', 'Intern']
-        }
+        },
         // If employeeRole is Engineer, ask for github
         {
             type: 'input',
@@ -125,7 +125,7 @@ const promptEmployee = employeeData => {
                     return false;
                 }
             }
-        }
+        },
         // If employeeRole is Intern, ask for school
         {
             type: 'input',
@@ -163,8 +163,7 @@ const promptEmployee = employeeData => {
 
 promptManager()
     .then(promptEmployee)
-    .then(answers ==> { //do stuff with answers
+    .then(answers => { //do stuff with answers
+     console.log(answers);
 
-
-
-    }
+    });
