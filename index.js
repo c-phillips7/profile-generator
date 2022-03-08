@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const { writeFile, copyFile } = require('./lib/render');
 let id = 0
 
 // increament ID
@@ -201,7 +202,10 @@ promptManager()
             //returned as string of HTML template
     })
     .then(htmlData => {
-        //take HTML template and add the css file (copy?)
+        // Create file based on string passed
+        writeFile(htmlData);
+        // Copy style.css into directory
+        copyFile();
     })
     .catch(e => {
         console.log(e);
