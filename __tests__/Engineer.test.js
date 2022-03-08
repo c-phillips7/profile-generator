@@ -9,3 +9,17 @@ test('create Engineer Object', () => {
     expect(engineer.email).toBe('test@email.com')
     expect(engineer.github).toBe('github')
 });
+
+//test getGithub() 
+test('get Engineers name as an object', () => {
+    const engineer = new Engineer('TestEngineer', 1, 'test@email.com', 'github');
+
+    expect(engineer.getGithub()).toEqual('github');
+});
+
+//test getRole() 
+test('get Engineers name as an object', () => {
+    const engineer = new Engineer('TestEngineer', 1, 'test@email.com', 'github');
+
+    expect(engineer.getRole()).toEqual('Engineer');
+});
