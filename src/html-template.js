@@ -1,4 +1,37 @@
-module.exports= teamData => {return `
+const generateCard = data => {
+    return `
+    <div class="row justify-content-center">
+            ${data.map(team => {
+                return `
+            <div class="col-8 col-lg-4 col-xl-3 mt-3">
+                <div class="card border border-dark text-center">
+                    <div class="card-header bg-primary">
+                        <h3 class="card-title fs-1">${team.getName()}</h3>
+                        <h5 class="card-subtitle fs-3">${team.getRole()}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body border border-secondary m-2">
+                            <h5>ID: ${team.getId()}</h5>
+                        </div>
+                        <div class="card-body border border-secondary m-2">
+                            <h5>Email: <a class="card-link" href="mailto:${team.getEmail()}">${team.getEmail()}</a></h5>
+                        </div>
+                        <div>
+                        generateCardRole(team)
+                        </div>
+                    </div>
+                </div>
+            </div>`}).join('')}
+        </div>`;
+}
+
+//generateCardRole for content specific to engineer, intern or manager
+
+
+
+
+module.exports = teamData => {
+    return `
 <!DOCTYPE html>
 <html lang="en">
     
@@ -20,5 +53,5 @@ module.exports= teamData => {return `
     </main>
 </body>
     
-</html>`
-};
+</html>`;
+}

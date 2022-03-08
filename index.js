@@ -3,6 +3,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const { writeFile, copyFile } = require('./lib/render');
+const generateHTML = require('./src/html-template.js')
 let id = 0
 
 // increament ID
