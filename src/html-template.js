@@ -24,9 +24,9 @@ const generateCard = data => {
                 return `
             <div class="col-8 col-lg-4 col-xl-3 mt-3">
                 <div class="card border border-dark text-center">
-                    <div class="card-header bg-primary">
-                        <h3 class="card-title fs-1">${team.getName()}</h3>
-                        <h5 class="card-subtitle fs-3">${team.getRole()}</h5>
+                    <div class="card-header">
+                        <h3 class="card-title fs-1 name">${team.getName()}</h3>
+                        <h5 class="card-subtitle fs-3 role">${team.getRole()}</h5>
                     </div>
                     <div class="card-body">
                         <div class="card-body border border-secondary m-2">
@@ -63,7 +63,7 @@ module.exports = teamData => {
     
 <body>
     <header class="container-fluid">
-        <h1 class="p-3 fs-2 text-center">My Team</h1>
+        <h1 class="p-3 fs-9 text-center">My Team</h1>
     </header>
     <main class="container">
             ${generateCard(teamData)}
