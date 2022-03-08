@@ -4,7 +4,7 @@ Repo: https://github.com/c-phillips7/profile-generator
 
 ## Description 
 
-A developer app that prompts a series of questions about the team members and their information. Once the user has finished responding, a HTML will auto-generate with bootstrap cards that list the team members.
+A console based app that prompts a series of questions about the team members and their information. Once the user has finished responding, a HTML will auto-generate with bootstrap cards that list the team members.
 
 ## Table of Contents 
 
@@ -32,7 +32,7 @@ HTML with the team's profile is then generated using the answers.
 
 A video demonstrating this can be found here:
 
-
+https://www.youtube.com/watch?v=VzIGbZaj2eM
 
 ## License
 
