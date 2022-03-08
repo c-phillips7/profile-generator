@@ -4,6 +4,14 @@ const generateCardRole = role => {
             return `    <div class="card-body border border-secondary m-2">
                             <h5>Number: ${role.getOfficeNumber()}</h5>
                         </div>`
+        case 'Engineer':
+            return `    <div class="card-body border border-secondary m-2">
+                            <h5>Github: ${role.getGithub()}</h5>
+                        </div>`
+        case 'Intern':
+            return `    <div class="card-body border border-secondary m-2">
+                            <h5>School: ${role.getSchool()}</h5>
+                        </div>`
     }
 
 
