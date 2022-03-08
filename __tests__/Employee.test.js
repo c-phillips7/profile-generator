@@ -15,3 +15,24 @@ test('get Employees name as an object', () => {
 
     expect(employee.getName()).toEqual('TestEmployee');
 });
+
+//test getId()
+test('get Employees id as an object', () => {
+    const employee = new Employee('TestEmployee', 1, 'test@email.com');
+
+    expect(employee.getId()).toEqual(1);
+});
+
+//test getEmail()
+test('get Employees email as an object', () => {
+    const employee = new Employee('TestEmployee', 1, 'test@email.com');
+
+    expect(employee.getEmail()).toEqual('test@email.com');
+});
+
+//test getRole() 
+test('get Employees name as an object', () => {
+    const employee = new Employee('TestEmployee', 1, 'test@email.com');
+
+    expect(employee.getRole()).toEqual('Employee');
+});
