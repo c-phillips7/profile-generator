@@ -200,6 +200,7 @@ promptManager()
     .then(teamData => {
         // take arrray of objects generated, and call function to generate HTML
             //returned as string of HTML template
+        return generateHTML(teamData)
     })
     .then(htmlData => {
         // Create file based on string passed
