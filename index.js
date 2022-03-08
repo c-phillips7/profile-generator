@@ -2,6 +2,13 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+let id = 0
+
+// increament ID
+function generateId() {
+    id++;
+    return id;
+}
 
 // prompt for Manager info from inquiere
 const promptManager = () => {
@@ -141,9 +148,6 @@ const promptEmployee = employeeData => {
                 }
             }
         }
-        // push created employee into array and ask if would like to add employee again
-            // if no: 
-                // return object created
         ])
         .then(newEmployee => {
             //push new Employee info into employee array
@@ -165,5 +169,8 @@ promptManager()
     .then(promptEmployee)
     .then(answers => { //do stuff with answers
      console.log(answers);
+    let team = [];
+    const manager = new Manager(answers.managerName, generateId(), answers.managerEmail, answers.managerNumber)
+    console.log(manager);
 
     });
