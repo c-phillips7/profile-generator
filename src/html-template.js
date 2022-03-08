@@ -1,3 +1,14 @@
+const generateCardRole = role => {
+    switch (role.getRole()) {
+        case 'Manager':
+            return `    <div class="card-body border border-secondary m-2">
+                            <h5>Number: ${role.getOfficeNumber()}</h5>
+                        </div>`
+    }
+
+
+}
+
 const generateCard = data => {
     return `
     <div class="row justify-content-center">
@@ -16,9 +27,7 @@ const generateCard = data => {
                         <div class="card-body border border-secondary m-2">
                             <h5>Email: <a class="card-link" href="mailto:${team.getEmail()}">${team.getEmail()}</a></h5>
                         </div>
-                        <div>
-                        generateCardRole(team)
-                        </div>
+                        ${generateCardRole(team)}
                     </div>
                 </div>
             </div>`}).join('')}
