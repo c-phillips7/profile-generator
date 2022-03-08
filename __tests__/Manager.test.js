@@ -1,4 +1,3 @@
-const { TestWatcher } = require('jest')
 const Manager = require('../lib/Manager.js')
 
 //test Manager object generation
@@ -9,5 +8,5 @@ test('create Manager Object', () => {
     expect(manager.id).toBe(1)
     expect(manager.email).toBe('test@email.com')
     expect(manager.officeNumber).toBe('420')
-})
+});
 
