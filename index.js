@@ -168,7 +168,7 @@ const promptEmployee = employeeData => {
 promptManager()
     .then(promptEmployee)
     .then(answers => { //do stuff with answers
-     console.log(answers);
+    //  console.log(answers);
     let team = [];
     // create manager object using Class definition
     const manager = new Manager(answers.managerName, generateId(), answers.managerEmail, answers.managerNumber)
@@ -176,18 +176,17 @@ promptManager()
     team.push(manager);
     //employees is an array of objects, so just push wont work...
     answers.employees.forEach(employee => {
-        console.log(this);
         // check if any employee exists
         if (employee.newEmployee) {
             if (employee.employeeRole === 'Engineer'){
                 const engineer = new Engineer(employee.employeeName, generateId(), employee.employeeEmail, employee.github);
-                console.log(engineer);
+                // console.log(engineer);
                 team.push(engineer);
                 return
             }
             else if (employee.employeeRole === 'Intern'){
                 const intern = new Intern(employee.employeeName, generateId(), employee.employeeEmail, employee.school);
-                console.log(intern);
+                // console.log(intern);
                 team.push(intern);
                 return
             }
@@ -196,4 +195,14 @@ promptManager()
     })
     console.log(team);
     return team;
+    })
+    .then(teamData => {
+        // take arrray of objects generated, and call function to generate HTML
+            //returned as string of HTML template
+    })
+    .then(htmlData => {
+        //take HTML template and add the css file (copy?)
+    })
+    .catch(e => {
+        console.log(e);
     });
